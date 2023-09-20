@@ -1,0 +1,147 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} Library Management System {% endblock %}
+{% block css %}
+<style>
+  body {
+    background-color: #f1f3f5;
+  }
+
+  
+  .welcome-section {
+    background-color: transparent;
+    padding: 30px;
+    margin: 50px 0;
+    animation: fadein 2s;
+  }
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  .welcome-section h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #3f51b5;
+    margin-bottom: 20px;
+    animation: slidein 1s;
+  }
+  .welcome-section p {
+    font-size: 20px;
+    color: wheat;
+    margin-bottom: 20px;
+    animation: slidein 1s;
+  }
+  .welcome-section a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #3f51b5;
+    border-radius: 5px;
+    padding: 15px 30px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    animation: slidein 1s;
+  }
+  .role-section {
+    background-color: transparent;
+    padding: 30px;
+    margin-bottom: 50px;
+    animation: fadein 2s;
+  }
+  .role-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #3f51b5;
+    margin-bottom: 20px;
+    animation: slidein 1s;
+  }
+  .role-section .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .role-section .col-lg-6 {
+    flex-basis: 48%;
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 5px;
+    animation: slidein 1s;
+    transition: transform 0.3s ease-in-out;
+  }
+  .role-section img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    margin-bottom: 20px;
+    animation: fadein 2s;
+  }
+  .role-section a {
+    font-size: 20px;
+    font-weight: bold;
+    color: #3f51b5;
+    background-color: #fff;
+    border: 2px solid #3f51b5;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+  }
+
+
+
+  .role-section a:hover {
+    color: #fff;
+    background-color: #3f51b5;
+    text-decoration: none;
+    transform: translateY(-5px);
+  }
+
+  @keyframes slidein {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>
+{% endblock %}
+{% block body %}
+<div class="container">
+  <div class="welcome-section">
+    <h1>Welcome to Vicky's Library Management System</h1>
+    <p>Become a member of our community and explore a world of literature! As a student, you have the privilege of borrowing books from our vast collection through the admin. Kindly ensure that you return the books within 14 days to avoid a penalty of Rs 5 per day until the book is back on our shelves. Happy reading!</p>
+    <a href="/student_registration/">Register as Student</a>
+  </div>
+
+  <div class="role-section">
+    <h2>Login as:</h2>
+    <div class="row">
+      <div class="col-lg-6">
+        <img src="{% static 'admin.png' %}" alt="Admin Login">
+        <a href="/admin_login/">Admin</a>
+      </div>
+      <div class="col-lg-6">
+        <img src="{% static 'students.png' %}" alt="Student Login">
+        <a href="/student_login/">Student</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

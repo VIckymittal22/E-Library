@@ -1,0 +1,76 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} Library Management System {% endblock %}
+{% block css %}
+<style>
+    /* set the background color and font family */
+    body {
+        background-color: #f3f3f3;
+        font-family: Arial, sans-serif;
+    }
+
+    /* add a background image */
+    .container {
+    /* background-image: url('/static/library.jpg'); */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+    /* style the form fields */
+    .form-control {
+        border-radius: 20px;
+        padding: 20px;
+        font-size: 18px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: none;
+        box-shadow: none;
+    }
+
+    /* add some spacing around the form */
+    form {
+        margin: 50px auto;
+        max-width: 500px;
+    }
+
+    /* style the login button */
+    button[type="submit"] {
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-size: 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        box-shadow: none;
+        transition: all 0.2s ease-in-out;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6 login-form">
+            <h1 class="text-center mb-4"><u>Student Login</u></h1>
+            <p class="text-center">Only for Students Login</p>
+
+            <form method="POST"> {% csrf_token %}
+                <div class="form-group">
+                        <label><i style="font-weight: bold;">Username</i></label>
+                    <input type="text" class="form-control" name="username" placeholder="Enter Username" required>
+                </div>
+                <div class="form-group">
+                    <label><i style="font-weight: bold;">Password</i></label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
+                    </div>
+                <button type="submit" class="btn btn-primary btn-block mt-4">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
